@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #fafbfc;
+}
+
+/* .container {
+    width: 980px;
+    margin: auto;
+} */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+    padding: 20px;
+}
+
+.header__icon {
+    font-size: 40px;
+}
+
+main {   
+    /* width: 100%;  */
+    padding: 30px 50px;
+}
+
+.card__input {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.line__input {
+    display: grid;
+    margin-bottom: 10px;
+}
+
+input {
+   padding: 10px; 
+   border: 1px solid blueviolet;
+   border-radius: 3px;
+   outline: 0;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    margin-top: 15px;
+    margin-right: 7px;
+    outline: 0;
+    background-color: blueviolet;
+    color: #fff;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all ease 0.3s;
+}
+
+button:hover {
+    background-color: rgb(99, 31, 163);
+}
+
+section {
+    /* width: 100%; */
+    margin-top: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 20px;
+}
+
+table th {
+    background-color: rgb(235, 230, 230);  
+}
+
+table th, td {
+    text-align: left;
+    padding: 1px 5px;
+}
+
+.table__icon {
+    font-size: 22px;    
+    color: blueviolet;
+    margin-left: 10px;
+    transition: all ease 0.3s;
+}
+
+.table__icon:hover {       
+    color: rgb(99, 31, 163)
+}
+
+.center {
+    text-align: center;
+}
