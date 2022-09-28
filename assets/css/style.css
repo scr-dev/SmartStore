@@ -132,3 +132,22 @@ table th, td {
     font-weight: bold;
     padding-top: 5px;
 }
+
+
+/* MEDIA QUERIES  */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    main {
+        margin: auto;
+        padding: 30px 15px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    main {
+        width: 980PX;
+        margin: auto;
+        padding: 30px;
+    }
+}
