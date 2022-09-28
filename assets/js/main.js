@@ -26,5 +26,5 @@ function salvar() {
         nomeProdutoInvalido.style.display = "none";
         precoProdutoInvalido.style.display = "none";
    }   
-   console.log(produto.arrayProdutos);
+   produto.listarTabela();
 }
