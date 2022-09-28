@@ -27,7 +27,8 @@ header {
 }
 
 main {   
-    /* width: 100%;  */
+     width: 780px;
+     margin: auto;
     padding: 30px 50px;
 }
 
@@ -70,7 +71,8 @@ button:hover {
 }
 
 section {
-    /* width: 100%; */
+    width: 780px;
+    margin: auto;
     margin-top: 30px;
 }
 
@@ -103,4 +105,28 @@ table th, td {
 
 .center {
     text-align: center;
+}
+
+/* Confirmaçoes de forms */
+
+.icon_sucesso {
+    font-size: 22px;
+}
+
+.produto-cadastrado_sucesso {
+    display: none;
+    color: green;
+    font-size: small;
+    margin-left: 10px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.campos__invalidos {
+    display: none;
+    color: red;
+    font-size: small;
+    margin-left: 10px;
+    font-weight: bold;
+    padding-top: 5px;
 }

@@ -11,11 +11,43 @@ btnClearform.addEventListener('click', produto.cleanForm)
 
 
 function salvar() {
-    let produtos = produto.adcionar()
+    let produtos = produto.adcionar();
+
+    let cadastroProductInfo = document.querySelector('#produto_cadastrado');
+    let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
+    let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
+    cadastroProductInfo.style.display = "none";
 
    if(produto.validaCampos(produtos)) {
         produto.novoProduto(produtos)
-   }
+       
+        produto.cleanForm();
+        cadastroProductInfo.style.display = "block";
+        nomeProdutoInvalido.style.display = "none";
+        precoProdutoInvalido.style.display = "none";
+   } 
 
-   console.log(produto.arrayProdutos)
+//    console.log(produto.arrayProdutos)
+//    console.log(produtos.nomeProduto)
+//    console.log(produto.arrayProdutos)
+
+   let {nomeProduto} = produto.arrayProdutos
+   console.log(nomeProduto)
+
+
+//    console.log(produto.arrayProdutos.indexOf(produtos.nomeProduto)) ;
 }
+
+
+// let pessoas = {
+//     x: {
+//         nome: 'pedro',
+//     },
+
+//     y: {
+//         nome: 'bruna',
+//     }
+
+// }
+
+// console.log(pessoas.x.nome.indexOf('pedrow'))

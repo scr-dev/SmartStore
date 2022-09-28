@@ -27,13 +27,16 @@
             <div class="line__input">
                 <label for="produto">Produto</label>
                 <input type="text" id="produto" placeholder="Nome do produto">
+                <span class="campos__invalidos" id="nome_produto_invalido"></span>
             </div>
 
             <div class="line__input">
                 <label for="valor">Valor</label>
                 <input type="text" id="preco" placeholder="Valor do produto">
+                <span class="campos__invalidos" id="preco_invalido"></span>
+                <span class="produto-cadastrado_sucesso" id="produto_cadastrado"><i class="uil uil-grin icon_sucesso"></i> Produto Cadastrado com sucesso!</span>
             </div>
-
+            
             <button id="salvar">Cadastrar</button>
             <button id="cleanForm">Cancelar</button>
         </div>
