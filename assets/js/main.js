@@ -25,29 +25,6 @@ function salvar() {
         cadastroProductInfo.style.display = "block";
         nomeProdutoInvalido.style.display = "none";
         precoProdutoInvalido.style.display = "none";
-   } 
-
-//    console.log(produto.arrayProdutos)
-//    console.log(produtos.nomeProduto)
-//    console.log(produto.arrayProdutos)
-
-   let {nomeProduto} = produto.arrayProdutos
-   console.log(nomeProduto)
-
-
-//    console.log(produto.arrayProdutos.indexOf(produtos.nomeProduto)) ;
+   }   
+   console.log(produto.arrayProdutos);
 }
-
-
-// let pessoas = {
-//     x: {
-//         nome: 'pedro',
-//     },
-
-//     y: {
-//         nome: 'bruna',
-//     }
-
-// }
-
-// console.log(pessoas.x.nome.indexOf('pedrow'))

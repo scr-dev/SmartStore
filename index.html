@@ -34,7 +34,14 @@
                 <label for="valor">Valor</label>
                 <input type="text" id="preco" placeholder="Valor do produto">
                 <span class="campos__invalidos" id="preco_invalido"></span>
-                <span class="produto-cadastrado_sucesso" id="produto_cadastrado"><i class="uil uil-grin icon_sucesso"></i> Produto Cadastrado com sucesso!</span>
+                <span class="produto-duplicado" id="produto_duplicado">
+                    <i class="uil uil-exclamation-triangle icon_produto_duplicado"></i>
+                     Produto já existe, Tente cadastrar um outro produto!
+                </span>
+                <span class="produto-cadastrado_sucesso" id="produto_cadastrado">
+                    <i class="uil uil-grin icon_sucesso"></i>
+                     Produto cadastrado com sucesso!
+                </span>
             </div>
             
             <button id="salvar">Cadastrar</button>
@@ -53,7 +60,7 @@
                     <th>Valor</th>
                     <th>Ações</th>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <tr>
                         <td class="center">1</td>
                         <td>Mesa De Janta Com 4 Cadeiras</td>

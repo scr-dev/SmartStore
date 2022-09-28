@@ -22,7 +22,12 @@ export class Produto {
         let campoPreco = false;
         let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
         let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
+        let produtoDuplicado = document.querySelector('#produto_duplicado');
 
+        /* VARIAVEL QUE RECEBE ITEM DUPLICADO */
+        let itemExistente = this.arrayProdutos.findIndex(item => {
+            return item.nomeProduto === produto.nomeProduto;
+        });
         
 
         if(produto.nomeProduto == '') {           
@@ -48,17 +53,13 @@ export class Produto {
             return false;
         } 
 
+        /* VERIFICAÇAO DE DUPLICIDADE DE ITEM */
+        if(itemExistente != -1) {
+            produtoDuplicado.style.display = "block"
+            return false
+        }
        
-    //     this.arrayProdutos.forEach(produto => {
-    //        if( produto.indexOf(produto.nomeProduto) != -1 ) {
-    //         alert('produto ja existe')
-    //        }
-    //   });
-
-       
-        return true;       
-
-       
+        return true;          
     }
 
     novoProduto(produto){        
@@ -69,16 +70,17 @@ export class Produto {
     cleanForm() {
         const productName = document.querySelectorAll('input')
 
+        let cadastroProductInfo = document.querySelector('#produto_cadastrado');
         let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
         let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
+        let produtoDuplicado = document.querySelector('#produto_duplicado');
+        cadastroProductInfo.style.display = "none";
         nomeProdutoInvalido.style.display = "none";
         precoProdutoInvalido.style.display = "none";
+        produtoDuplicado.style.display = 'none';
 
-        productName.forEach(btn => {
-            btn.value = '';
+        productName.forEach(input => {
+            input.value = '';
         });
-    }
+    }    
 }
-
-
-
