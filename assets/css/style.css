@@ -8,11 +8,6 @@ body {
     background-color: #fafbfc;
 }
 
-/* .container {
-    width: 980px;
-    margin: auto;
-} */
-
 header {
     display: flex;
     justify-content: center;
@@ -26,13 +21,12 @@ header {
     font-size: 40px;
 }
 
-main {   
-     width: 780px;
-     margin: auto;
+main {
+    margin: auto;
     padding: 30px 50px;
 }
 
-.card__input {
+.card__input {    
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
@@ -70,16 +64,14 @@ button:hover {
     background-color: rgb(99, 31, 163);
 }
 
-section {
-    width: 780px;
-    margin: auto;
+section {      
     margin-top: 30px;
 }
 
 table {
+    width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
-    width: 100%;
     margin-top: 20px;
 }
 
@@ -96,6 +88,7 @@ table th, td {
     font-size: 22px;    
     color: blueviolet;
     margin-left: 10px;
+    cursor: pointer;
     transition: all ease 0.3s;
 }
 
@@ -138,5 +131,4 @@ table th, td {
     margin-left: 10px;
     font-weight: bold;
     padding-top: 5px;
-    
 }
