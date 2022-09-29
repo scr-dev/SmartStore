@@ -16,7 +16,9 @@ function salvar() {
     let cadastroProductInfo = document.querySelector('#produto_cadastrado');
     let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
     let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
+    let produtoDuplicado = document.querySelector('#produto_duplicado');
     cadastroProductInfo.style.display = "none";
+    produtoDuplicado.style.display = 'none';
 
    if(produto.validaCampos(produtos)) {
         produto.novoProduto(produtos)

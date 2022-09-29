@@ -50,8 +50,6 @@ export class Produto {
 
              td_acao.appendChild(iconEdit);
              td_acao.appendChild(iconDelet);
-
-
         }
     }
 
@@ -62,13 +60,11 @@ export class Produto {
         let campoPreco = false;
         let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
         let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
-        let produtoDuplicado = document.querySelector('#produto_duplicado');
-
-        /* VARIAVEL QUE RECEBE ITEM DUPLICADO */
-        let itemExistente = this.arrayProdutos.findIndex(item => {
-            return item.nomeProduto === produto.nomeProduto;
-        });
+        let produtoDuplicado = document.querySelector('#produto_duplicado'); 
         
+        /* VARIAVEIAS FUNCAO ONFOCUS */
+        let inputName = document.querySelector('#produto');
+        let inputPreco = document.querySelector('#preco');
 
         if(produto.nomeProduto == '') {           
             msgNome += 'O nome do produto deve ser informado!';
@@ -80,22 +76,39 @@ export class Produto {
         } 
         
         if(msgNome != '' || msgPreco != '') {
-
-            if(campoNome) {                               
-                nomeProdutoInvalido.innerHTML = msgNome;
-                nomeProdutoInvalido.style.display = "block"                
-            }
-            if(campoPreco) {                         
+           
+            if(campoPreco) {                     
                 precoProdutoInvalido.innerHTML= msgPreco;          
-                precoProdutoInvalido.style.display = "block"                
-            }        
+                precoProdutoInvalido.style.display = "block";  
+                inputPreco.focus();              
+            }else {
+                msgPreco = '';
+                precoProdutoInvalido.style.display = "none"; 
+            }
+
+            if(campoNome) {                         
+                nomeProdutoInvalido.innerHTML = msgNome;
+                nomeProdutoInvalido.style.display = "block"
+                inputName.focus();                
+            }else {
+                msgNome = '';
+                nomeProdutoInvalido.style.display = "none" 
+            }     
             
             return false;
         } 
 
+         /* VARIAVEL QUE RECEBE ITEM DUPLICADO */
+         let itemExistente = this.arrayProdutos.findIndex(item => {
+            return item.nomeProduto === produto.nomeProduto;
+        });
+
         /* VERIFICAÇAO DE DUPLICIDADE DE ITEM */
         if(itemExistente != -1) {
+            precoProdutoInvalido.style.display = "none";
+            nomeProdutoInvalido.style.display = "none"
             produtoDuplicado.style.display = "block"
+            inputName.focus();
             return false
         }
        
@@ -119,8 +132,12 @@ export class Produto {
         precoProdutoInvalido.style.display = "none";
         produtoDuplicado.style.display = 'none';
 
+        /* VARIAVEIAS FUNCAO ONFOCUS */
+        let inputName = document.querySelector('#produto');
+
         productName.forEach(input => {
             input.value = '';
         });
+        inputName.focus()
     }    
 }
