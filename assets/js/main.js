@@ -28,5 +28,56 @@ function salvar() {
         nomeProdutoInvalido.style.display = "none";
         precoProdutoInvalido.style.display = "none";
    }   
-   produto.listarTabela();
+   listarProduto();
+   console.log(produto.arrayProdutos)
 }
+
+function listarProduto() {
+   let corpoTabela = document.querySelector('#tbody');
+   corpoTabela.innerHTML = '';
+
+   for(let i in produto.arrayProdutos){
+       let tr = corpoTabela.insertRow();
+
+       let td_id = tr.insertCell();
+       let td_produto = tr.insertCell();
+       let td_preco = tr.insertCell();
+       let td_acao = tr.insertCell();
+
+       /* Iserindo os dados de forma dinamica  */
+
+       td_id.innerHTML = produto.arrayProdutos[i].id;
+       td_produto.innerHTML = produto.arrayProdutos[i].nomeProduto;
+       td_preco.innerHTML = produto.arrayProdutos[i].valorProduto;
+
+       /*  Alinhando as informaçoes na tabela  */
+
+       td_id.classList.add('center');
+       td_acao.classList.add('center');
+
+       /*  Criando os icones de ações  */
+
+       let iconEdit = document.createElement('i');
+       let iconDelet = document.createElement('i');
+
+        /*  Adcionando as clases dos icones  */
+
+        iconEdit.classList.add('"uil','uil-edit','table__icon');
+        iconDelet.classList.add('uil','uil-times','table__icon');
+
+        /*  Adcionando o elemnto criado ao campo da ações da tabela  */
+
+        td_acao.appendChild(iconEdit);
+        td_acao.appendChild(iconDelet);
+
+       /*  Adcionando a funçao deletar dinamicamente  */
+       iconDelet.addEventListener("click", auxilioDeletar)
+
+       function auxilioDeletar() {        
+         let id = produto.arrayProdutos[i].id        
+         produto.deletar(id)
+       }      
+   }
+}
+
+

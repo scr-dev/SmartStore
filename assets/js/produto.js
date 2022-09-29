@@ -11,46 +11,18 @@ export class Produto {
         produto.nomeProduto = document.querySelector('#produto').value;
         produto.valorProduto = document.querySelector('#preco').value;       
         return produto
-    }
+    }    
 
-    listarTabela() {
+    deletar(id) {  
         let corpoTabela = document.querySelector('#tbody');
-        corpoTabela.innerHTML = '';
 
-        for(let i in this.arrayProdutos){
-            let tr = corpoTabela.insertRow();
-
-            let td_id = tr.insertCell();
-            let td_produto = tr.insertCell();
-            let td_preco = tr.insertCell();
-            let td_acao = tr.insertCell();
-
-            /* Iserindo os dados de forma dinamica  */
-
-            td_id.innerHTML = this.arrayProdutos[i].id;
-            td_produto.innerHTML = this.arrayProdutos[i].nomeProduto;
-            td_preco.innerHTML = this.arrayProdutos[i].valorProduto;
-
-            /*  Alinhando as informaçoes na tabela  */
-
-            td_id.classList.add('center');
-            td_acao.classList.add('center');
-
-            /*  Criando os icones de ações  */
-
-            let iconEdit = document.createElement('i');
-            let iconDelet = document.createElement('i');
-
-             /*  Adcionando as clases dos icones  */
-
-             iconEdit.classList.add('"uil','uil-edit','table__icon');
-             iconDelet.classList.add('uil','uil-times','table__icon');
-
-             /*  Adcionando o elemnto criado ao campo da ações da tabela  */
-
-             td_acao.appendChild(iconEdit);
-             td_acao.appendChild(iconDelet);
+        for(let i in this.arrayProdutos) {
+            if(this.arrayProdutos[i].id == id) {
+                this.arrayProdutos.splice(i, 1);
+                corpoTabela.deleteRow(i);
+            }
         }
+       alert('apagar id: ' + id);
     }
 
     validaCampos(produto) {        

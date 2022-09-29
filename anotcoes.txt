@@ -29,3 +29,14 @@ FUNCAO insertCell() Adciona as linhas em uma tabela no html
                             <i class="uil uil-times table__icon"></i>
                         </td>
                     </tr>
+
+
+
+
+                    function auxilioDeletar() {
+  let id = produto.arrayProdutos.forEach(item => {
+      return item.id
+  });
+     
+  console.log(id)
+}
