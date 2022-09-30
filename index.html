@@ -36,15 +36,14 @@
 
             <div class="line__input">
                 <label for="valor">Valor</label>
-                <input type="text" id="preco" placeholder="Valor do produto">
+                <input type="number" id="preco" placeholder="Valor do produto">
                 <span class="campos__invalidos" id="preco_invalido"></span>
                 <span class="produto-cadastrado_sucesso" id="produto_cadastrado">
                     <i class="uil uil-grin icon_sucesso"></i>
                      Produto cadastrado com sucesso!
                 </span>
             </div>
-            
-            <button id="salvar">Cadastrar</button>
+            <button id="save-button" onclick="addProduct()">Cadastrar</button>
             <button id="cleanForm">Cancelar</button>
         </div>
         
@@ -67,6 +66,6 @@
         </section>
    </main>
 
-    <script src="./assets/js/main.js" type="module"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
