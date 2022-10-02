@@ -40,3 +40,5 @@ FUNCAO insertCell() Adciona as linhas em uma tabela no html
      
   console.log(id)
 }
+
+

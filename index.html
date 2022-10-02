@@ -38,13 +38,19 @@
                 <label for="valor">Valor</label>
                 <input type="number" id="preco" placeholder="Valor do produto">
                 <span class="campos__invalidos" id="preco_invalido"></span>
-                <span class="produto-cadastrado_sucesso" id="produto_cadastrado">
-                    <i class="uil uil-grin icon_sucesso"></i>
+                <span class="produto_cadastrado_sucesso" id="produto_cadastrado">
+                    <i class="uil uil-grin icon_dialog"></i>
                      Produto cadastrado com sucesso!
                 </span>
+
+                <span class="produto_editado_sucesso" id="produto_atualizado">
+                    <i class="uil uil-save icon_dialog"></i>
+                     As alterações foram salvas!
+                </span>
             </div>
-            <button id="save-button" onclick="addProduct()">Cadastrar</button>
-            <button id="cleanForm">Cancelar</button>
+            
+            <button id="salvar" onclick="produto.salvar()">Cadastrar</button>
+            <button id="cleanForm" onclick="produto.cleanForm()">Cancelar</button>
         </div>
         
         <section>
@@ -66,6 +72,6 @@
         </section>
    </main>
 
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 </html>

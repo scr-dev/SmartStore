@@ -102,13 +102,22 @@ table th, td {
 
 /* Confirmaçoes de forms */
 
-.icon_sucesso, .icon_produto_duplicado {
+.icon_dialog, .icon_produto_duplicado {
     font-size: 22px;
 }
 
-.produto-cadastrado_sucesso {
+.produto_cadastrado_sucesso {
     display: none;
     color: green;
+    font-size: small;
+    margin-left: 10px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.produto_editado_sucesso {
+    display: none;
+    color: blue;
     font-size: small;
     margin-left: 10px;
     font-weight: bold;
