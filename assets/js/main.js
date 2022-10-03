@@ -2,8 +2,7 @@ class Produto {
 
     constructor() {
         this.idProduct = 1;
-        this.arrayProdutos = [];
-       
+        this.arrayProdutos = [];      
     }
 
     salvar() {
@@ -16,7 +15,6 @@ class Produto {
         let produtoDuplicado = document.querySelector('#produto_duplicado');         
                        
         if(this.validaCampo(produto)) {
-
             this.adcionarNovoProduto(produto);
             this.cleanForm();
 
@@ -27,9 +25,8 @@ class Produto {
             
             // Inserindo alerta de produto salvo
             cadastroProductInfo.style.display = "block";    
-
             this.listarProduto();
-           
+            this.cleanDialog();
         }       
     };
 
@@ -110,17 +107,10 @@ class Produto {
         produto.valorProduto = parseFloat(produto.valorProduto);       
         this.arrayProdutos.push(produto)
         this.idProduct++; 
-
-        console.log(this.arrayProdutos)
     }
 
     preparaEdicao(dadosProdutos) {
-        // Adcionando o id do produto a ser editado a variavel EDITID
         
-        console.log(dadosProdutos.id);
-        console.log(this.arrayProdutos)
-        
-
         // Campos formularios
         let inputName = document.querySelector('#produto');
         let inputPreco = document.querySelector('#preco');
@@ -138,10 +128,8 @@ class Produto {
         inputName.disabled = true;
     }
 
-    atualizarProduto(dadosProdutos) {
-       
+    atualizarProduto(dadosProdutos) {       
         let {id, nomeProduto, valorProduto} = dadosProdutos;
-
         nomeProduto = document.querySelector('#produto').value;
         valorProduto = document.querySelector('#preco').value; 
 
@@ -153,14 +141,10 @@ class Produto {
         }
 
         this.listarProduto();
-
-       
-       
-
         this.cleanForm();
-
-        let cadastroProductInfo = document.querySelector('#produto_atualizado');
-        cadastroProductInfo.style.display = 'block'
+        let editProductAlert = document.querySelector('#produto_atualizado');
+        editProductAlert.style.display = 'block'
+        this.cleanDialog();
     } 
 
     cleanForm() {
@@ -220,7 +204,7 @@ class Produto {
      
              /*  Adcionando as clases dos icones  */     
              iconEdit.classList.add('"uil','uil-edit','table__icon');
-             iconDelet.classList.add('uil','uil-times','table__icon');
+             iconDelet.classList.add('uil','uil-trash-alt','table__icon');
      
              /*  Adcionando o elemnto criado ao campo da ações da tabela  */     
              td_acao.appendChild(iconEdit);
@@ -235,19 +219,30 @@ class Produto {
      } 
 
     deletarProduto(id) { 
-
         if(confirm('Deseja apagar o produto com id: ' + id)) {
             let corpoTabela = document.querySelector('#tbody');
             const index = this.arrayProdutos.findIndex((produto) => produto.id === id);
             this.arrayProdutos.splice(index, 1);
-            corpoTabela.deleteRow(index);
-
-            console.log(this.arrayProdutos) ;    
+            corpoTabela.deleteRow(index);               
         }
+    }    
+
+    cleanDialog() {
+        setTimeout( ()=>{
+            this.closeAlert()
+        }, 4500) 
     }
-    
+
+    closeAlert() { 
+        let cadastroProductInfo = document.querySelector('#produto_cadastrado');
+        let editProductAlert = document.querySelector('#produto_atualizado');
+        cadastroProductInfo.style.display = 'none'
+        editProductAlert.style.display = 'none'
+    }
 }
 
 
 const produto = new Produto();
+
+
 
