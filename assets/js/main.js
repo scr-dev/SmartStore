@@ -166,6 +166,7 @@ class Produto {
     } 
 
     cleanForm() {
+        this.editItem = false;
         const productName = document.querySelectorAll('input')
         let btnAdcionarProduto = document.querySelector('#salvar');
 
