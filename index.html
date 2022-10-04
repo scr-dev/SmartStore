@@ -26,7 +26,7 @@
         <div class="card__input">
             <div class="line__input">
                 <label for="produto">Produto</label>
-                <input type="text" id="produto" placeholder="Nome do produto">
+                <input type="text" id="produto" placeholder="Nome do produto" onkeyup="produto.closeInfoErroNome()">
                 <span class="campos__invalidos" id="nome_produto_invalido"></span>                
                 <span class="produto-duplicado" id="produto_duplicado">
                     <i class="uil uil-exclamation-triangle icon_produto_duplicado"></i>
@@ -36,7 +36,7 @@
 
             <div class="line__input">
                 <label for="valor">Valor</label>
-                <input type="number" id="preco" placeholder="Valor do produto">
+                <input type="number" id="preco" placeholder="Valor do produto" onkeyup="produto.closeInfoErroPrice()">
                 <span class="campos__invalidos" id="preco_invalido"></span>
                 <span class="produto_cadastrado_sucesso" id="produto_cadastrado">
                     <i class="uil uil-grin icon_dialog"></i>

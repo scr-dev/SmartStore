@@ -2,7 +2,8 @@ class Produto {
 
     constructor() {
         this.idProduct = 1;
-        this.arrayProdutos = [];      
+        this.arrayProdutos = []; 
+        this.editItem = false;     
     }
 
     salvar() {
@@ -14,7 +15,7 @@ class Produto {
         let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
         let produtoDuplicado = document.querySelector('#produto_duplicado');         
                        
-        if(this.validaCampo(produto)) {
+        if(this.validaCampo(produto) && this.verificarDuplicidade(produto)) {
             this.adcionarNovoProduto(produto);
             this.cleanForm();
 
@@ -83,10 +84,19 @@ class Produto {
                 nomeProdutoInvalido.style.display = "none" 
             }
             return false
-        }
+        }      
 
-        /* VARIAVEL QUE RECEBE ITEM DUPLICADO */
-        let itemExistente = this.arrayProdutos.findIndex(item => {
+        return true        
+    }
+
+    verificarDuplicidade(produto) {
+         // ELEMENTOS DE ALERTAS A SEREM EXIBIDOS DURANTE A VALIDAÇÃO
+         let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');        
+         let precoProdutoInvalido =  document.querySelector('#preco_invalido'); 
+         let produtoDuplicado = document.querySelector('#produto_duplicado'); 
+
+         /* VARIAVEL QUE RECEBE ITEM DUPLICADO */
+         let itemExistente = this.arrayProdutos.findIndex(item => {
             return item.nomeProduto === produto.nomeProduto;
         });
 
@@ -99,8 +109,7 @@ class Produto {
             inputName.focus();
             return false
         }
-
-        return true        
+        return true;
     }
 
     adcionarNovoProduto(produto){       
@@ -110,7 +119,8 @@ class Produto {
     }
 
     preparaEdicao(dadosProdutos) {
-        
+        this.closeAlert()
+        this.editItem = true;
         // Campos formularios
         let inputName = document.querySelector('#produto');
         let inputPreco = document.querySelector('#preco');
@@ -128,23 +138,31 @@ class Produto {
         inputName.disabled = true;
     }
 
-    atualizarProduto(dadosProdutos) {       
+    atualizarProduto(dadosProdutos) {  
         let {id, nomeProduto, valorProduto} = dadosProdutos;
         nomeProduto = document.querySelector('#produto').value;
         valorProduto = document.querySelector('#preco').value; 
 
-        for(let i in this.arrayProdutos) {
-            if(this.arrayProdutos[i].id == id) {
-                this.arrayProdutos[i].nomeProduto = nomeProduto;
-                this.arrayProdutos[i].valorProduto = valorProduto;
-            }
-        }
+        if(valorProduto != ''){
+            this.editItem = false;
+            for(let i in this.arrayProdutos) {
+                if(this.arrayProdutos[i].id == id) {
+                    this.arrayProdutos[i].nomeProduto = nomeProduto;
+                    this.arrayProdutos[i].valorProduto = valorProduto;
+                }
 
-        this.listarProduto();
-        this.cleanForm();
-        let editProductAlert = document.querySelector('#produto_atualizado');
-        editProductAlert.style.display = 'block'
-        this.cleanDialog();
+                this.listarProduto();
+                this.cleanForm();
+                let editProductAlert = document.querySelector('#produto_atualizado');
+                editProductAlert.style.display = 'block';
+                this.cleanDialog();
+            }
+        }else {
+            let precoProdutoInvalido = document.querySelector('#preco_invalido'); 
+            if(confirm('Deseja atualizar o produto sem informar o valor?')) {
+                alert('Sorry, that is not possible');
+            }            
+        }
     } 
 
     cleanForm() {
@@ -219,12 +237,16 @@ class Produto {
      } 
 
     deletarProduto(id) { 
-        if(confirm('Deseja apagar o produto com id: ' + id)) {
-            let corpoTabela = document.querySelector('#tbody');
-            const index = this.arrayProdutos.findIndex((produto) => produto.id === id);
-            this.arrayProdutos.splice(index, 1);
-            corpoTabela.deleteRow(index);               
-        }
+        if(this.editItem == false) {
+            if(confirm('Deseja apagar o produto com id: ' + id)) {
+                let corpoTabela = document.querySelector('#tbody');
+                const index = this.arrayProdutos.findIndex((produto) => produto.id === id);
+                this.arrayProdutos.splice(index, 1);
+                corpoTabela.deleteRow(index);               
+            }
+        } else {
+            alert('Você não pode excluir um item durante a ediçao!');
+        }       
     }    
 
     cleanDialog() {
@@ -236,9 +258,23 @@ class Produto {
     closeAlert() { 
         let cadastroProductInfo = document.querySelector('#produto_cadastrado');
         let editProductAlert = document.querySelector('#produto_atualizado');
-        cadastroProductInfo.style.display = 'none'
-        editProductAlert.style.display = 'none'
+        let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido'); 
+        let precoProdutoInvalido =  document.querySelector('#preco_invalido');  
+        cadastroProductInfo.style.display = 'none';
+        editProductAlert.style.display = 'none';
+        nomeProdutoInvalido.style.display = 'none';
+        precoProdutoInvalido.style.display = 'none';
     }
+
+    closeInfoErroNome() {
+        let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');
+        nomeProdutoInvalido.style.display = 'none';
+    }
+
+    closeInfoErroPrice() {
+        let precoProdutoInvalido =  document.querySelector('#preco_invalido');  
+        precoProdutoInvalido.style.display = 'none';
+    }    
 }
 
 
