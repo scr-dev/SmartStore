@@ -141,7 +141,7 @@ class Produto {
     atualizarProduto(dadosProdutos) {  
         let {id, nomeProduto, valorProduto} = dadosProdutos;
         nomeProduto = document.querySelector('#produto').value;
-        valorProduto = document.querySelector('#preco').value; 
+        valorProduto = parseFloat(document.querySelector('#preco').value); 
 
         if(valorProduto != ''){
             this.editItem = false;
@@ -211,7 +211,7 @@ class Produto {
             /* Iserindo os dados de forma dinamica  */     
             td_id.innerHTML = produto.arrayProdutos[i].id;
             td_produto.innerHTML = produto.arrayProdutos[i].nomeProduto;
-            td_preco.innerHTML = produto.arrayProdutos[i].valorProduto;
+            td_preco.innerHTML = 'R$ '+produto.arrayProdutos[i].valorProduto.toFixed(2);
      
             /*  Alinhando as informaçoes na tabela  */     
             td_id.classList.add('center');
@@ -268,8 +268,10 @@ class Produto {
     }
 
     closeInfoErroNome() {
+        let produtoDuplicado = document.querySelector('#produto_duplicado');
         let nomeProdutoInvalido = document.querySelector('#nome_produto_invalido');
         nomeProdutoInvalido.style.display = 'none';
+        produtoDuplicado.style.display = 'none';
     }
 
     closeInfoErroPrice() {
