@@ -143,7 +143,7 @@ class Produto {
         nomeProduto = document.querySelector('#produto').value;
         valorProduto = parseFloat(document.querySelector('#preco').value); 
 
-        if(valorProduto != ''){
+        if(valorProduto != null){
             this.editItem = false;
             for(let i in this.arrayProdutos) {
                 if(this.arrayProdutos[i].id == id) {
