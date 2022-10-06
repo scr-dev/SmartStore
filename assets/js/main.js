@@ -141,10 +141,11 @@ class Produto {
     atualizarProduto(dadosProdutos) {  
         let {id, nomeProduto, valorProduto} = dadosProdutos;
         nomeProduto = document.querySelector('#produto').value;
-        valorProduto = parseFloat(document.querySelector('#preco').value); 
+        valorProduto = document.querySelector('#preco').value; 
 
-        if(valorProduto != null){
+        if(valorProduto != ''){
             this.editItem = false;
+            valorProduto = parseFloat(valorProduto);
             for(let i in this.arrayProdutos) {
                 if(this.arrayProdutos[i].id == id) {
                     this.arrayProdutos[i].nomeProduto = nomeProduto;
