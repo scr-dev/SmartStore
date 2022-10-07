@@ -26,7 +26,7 @@ main {
     padding: 30px 50px;
 }
 
-.card__input {    
+.card__input {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
@@ -41,10 +41,10 @@ main {
 }
 
 input {
-   padding: 10px; 
-   border: 1px solid blueviolet;
-   border-radius: 3px;
-   outline: 0;
+    padding: 10px;
+    border: 1px solid blueviolet;
+    border-radius: 3px;
+    outline: 0;
 }
 
 button {
@@ -64,7 +64,7 @@ button:hover {
     background-color: rgb(99, 31, 163);
 }
 
-section {      
+section {
     margin-top: 30px;
 }
 
@@ -76,23 +76,24 @@ table {
 }
 
 table th {
-    background-color: rgb(235, 230, 230);  
+    background-color: rgb(235, 230, 230);
 }
 
-table th, td {
+table th,
+td {
     text-align: left;
     padding: 1px 5px;
 }
 
 .table__icon {
-    font-size: 22px;    
+    font-size: 22px;
     color: blueviolet;
     margin-left: 10px;
     cursor: pointer;
     transition: all ease 0.3s;
 }
 
-.table__icon:hover {       
+.table__icon:hover {
     color: rgb(99, 31, 163)
 }
 
@@ -102,7 +103,8 @@ table th, td {
 
 /* Confirmaçoes de forms */
 
-.icon_dialog, .icon_produto_duplicado {
+.icon_dialog,
+.icon_produto_duplicado {
     font-size: 22px;
 }
 

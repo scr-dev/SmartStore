@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart-Store</title> 
-    <link rel="stylesheet" href="./assets/css/style.css">  
+    <title>Smart-Store</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
+
 <body>
-   
-    <header>  
+
+    <header>
         <i class="uil uil-shop header__icon"></i>
         <h1>SmartStore</h1>
     </header>
-    <main  class="container">
+    <main class="container">
         <div class="card__title">
-            <h2>Produtos</h2>  
-            <span>Cadastrar um novo produto.</span>          
+            <h2>Produtos</h2>
+            <span>Cadastrar um novo produto.</span>
         </div>
         <div class="card__input">
             <div class="line__input">
                 <label for="produto">Produto</label>
-                <input type="text" id="produto" placeholder="Nome do produto" onkeyup="produto.closeInfoErroNome()">
-                <span class="campos__invalidos" id="nome_produto_invalido"></span>                
+                <input type="text" id="produto" placeholder="Nome do produto"
+                    onkeyup="produto.closeInfoErroNome(); produto.salvarComEnter(event)">
+                <span class="campos__invalidos" id="nome_produto_invalido"></span>
                 <span class="produto-duplicado" id="produto_duplicado">
                     <i class="uil uil-exclamation-triangle icon_produto_duplicado"></i>
-                     Produto já existe, Tente cadastrar um outro produto!
+                    Produto já existe, Tente cadastrar um outro produto!
                 </span>
             </div>
 
             <div class="line__input">
                 <label for="valor">Valor</label>
-                <input type="number" id="preco" placeholder="Valor do produto" onkeyup="produto.closeInfoErroPrice()">
+                <input type="number" id="preco" placeholder="Valor do produto"
+                    onkeyup="produto.closeInfoErroPrice(); produto.salvarComEnter(event)">
                 <span class="campos__invalidos" id="preco_invalido"></span>
                 <span class="produto_cadastrado_sucesso" id="produto_cadastrado">
                     <i class="uil uil-grin icon_dialog"></i>
-                     Produto cadastrado com sucesso!
+                    Produto cadastrado com sucesso!
                 </span>
 
                 <span class="produto_editado_sucesso" id="produto_atualizado">
                     <i class="uil uil-save icon_dialog"></i>
-                     As alterações foram salvas!
+                    As alterações foram salvas!
                 </span>
             </div>
-            
+
             <button id="salvar" onclick="produto.salvar()">Cadastrar</button>
             <button id="cleanForm" onclick="produto.cleanForm()">Cancelar</button>
         </div>
-        
+
         <section>
             <div class="card__title">
-                <h2>Produtos Cadastrados.</h2>  
-                <span>Lista de produtos da minha loja.</span>          
+                <h2>Produtos Cadastrados.</h2>
+                <span>Lista de produtos da minha loja.</span>
             </div>
             <table border="1">
                 <thead>
@@ -66,12 +70,13 @@
                     <th>Ações</th>
                 </thead>
                 <tbody id="tbody">
-                    
+
                 </tbody>
             </table>
         </section>
-   </main>
+    </main>
 
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
