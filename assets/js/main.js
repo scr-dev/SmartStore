@@ -292,8 +292,23 @@ class Produto {
     }
 }
 
-
 const produto = new Produto();
+
+
+
+  window.setInterval(showTimer, 0001);
+
+  function showTimer() {
+    let showTimer = document.querySelector('#timer');
+    let date = new Date();
+    let h = date.getHours;
+    let m = date.getMinutes;
+    let s = date.getSeconds;
+
+    console.log(`${h}:${m}:${s}`)
+
+    showTimer.innerHTML = `${h}:${m}:${s}`;
+  }
 
 
 
