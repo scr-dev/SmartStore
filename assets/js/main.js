@@ -301,11 +301,9 @@ const produto = new Produto();
   function showTimer() {
     let showTimer = document.querySelector('#timer');
     let date = new Date();
-    let h = date.getHours;
-    let m = date.getMinutes;
-    let s = date.getSeconds;
-
-    console.log(`${h}:${m}:${s}`)
+    let h = date.getHours();
+    let m = date.getMinutes();
+    let s = date.getSeconds();  
 
     showTimer.innerHTML = `${h}:${m}:${s}`;
   }
